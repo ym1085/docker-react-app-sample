@@ -12,5 +12,18 @@ before_install:
 script:
   - docker run -e CI=true youngmin1085/docker-react-nginx npm run test -- --coverage
 
-after_success:
-  - echo "Test Success"
+# after_success:
+#   - echo "Test Success"
+
+# aws
+deploy:
+  provider: elasticbeanstalk # travis CI endpoint 지정
+  region: "ap-northeast-2" # AWS region 지정
+  app: "docker-react-app" # app 이름 지정
+  env: "Dockerreactapp-env" # 환경 지정
+  bucket_name: "elasticbeanstalk-ap-northeast-2-545032219937" # 버킷명
+  bucket_path: "docker-react-app" # 버킷 경로 지정
+  on: 
+    branch: master # 이벤트 발생 브랜치 지정
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_ACCESS_KEY
