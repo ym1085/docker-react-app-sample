@@ -25,5 +25,6 @@ deploy:
   bucket_path: "docker-react-app" # 버킷 경로 지정
   on: 
     branch: master # 이벤트 발생 브랜치 지정
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
